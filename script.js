@@ -170,44 +170,43 @@ filterBtns.forEach(btn => {
 });
 
 // ---- CONTACT FORM — EmailJS ----
-document.addEventListener("DOMContentLoaded", function () {
+// ---- CONTACT FORM — EmailJS ----
+emailjs.init('gXNyxaFUEYM3GWxuc');
 
-  emailjs.init('gXNyxaFUEYM3GWxuc');
+const contactForm = document.getElementById("contactForm");
+const formSuccess = document.getElementById("formSuccess");
+const formError   = document.getElementById("formError");
+const submitBtn   = document.getElementById("submitBtn");
 
-  const contactForm = document.getElementById("contactForm");
-  const formSuccess = document.getElementById("formSuccess");
-  const formError   = document.getElementById("formError");
-  const submitBtn   = document.getElementById("submitBtn");
-
-  // Stop script if form not found
-  if (!contactForm) return;
+if (contactForm) {
 
   contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     // Reset messages
-    formSuccess.classList.remove("show");
-    formError.classList.remove("show");
+    if (formSuccess) formSuccess.classList.remove("show");
+    if (formError) formError.classList.remove("show");
 
     // Loading state
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending...";
 
     emailjs.sendForm("service_dbjqecr", "template_zpzk2h7", this)
-      .then(() => {
+      .then(function () {
 
         // Success
         submitBtn.style.display = "none";
-        formSuccess.classList.add("show");
+        if (formSuccess) formSuccess.classList.add("show");
         contactForm.reset();
 
       })
-      .catch((error) => {
+      .catch(function (error) {
 
         // Error
         submitBtn.disabled = false;
         submitBtn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
-        formError.classList.add("show");
+
+        if (formError) formError.classList.add("show");
 
         console.error("EmailJS Error:", error);
 
@@ -215,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   });
 
-});
+}
 
 // ---- SMOOTH ANCHOR SCROLL ----
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
