@@ -203,7 +203,7 @@ if (contactForm) {
     };
 
     // Send email
-    emailjs.send("service_dbjqecr", "template_zpzk2h7", templateParams)
+    emailjs.send("service_ejxjiy7", "template_zpzk2h7", templateParams)
       .then(function (response) {
 
         console.log("SUCCESS!", response.status, response.text);
