@@ -170,7 +170,8 @@ filterBtns.forEach(btn => {
 });
 
 // ---- CONTACT FORM — EmailJS ----
-// ---- CONTACT FORM — EmailJS ----
+
+// Initialize EmailJS
 emailjs.init('gXNyxaFUEYM3GWxuc');
 
 const contactForm = document.getElementById("contactForm");
@@ -191,24 +192,36 @@ if (contactForm) {
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending...";
 
-    emailjs.sendForm("service_dbjqecr", "template_zpzk2h7", this)
-      .then(function () {
+    // Collect form data
+    const templateParams = {
+      from_name: contactForm.querySelector('[name="from_name"]').value,
+      company: contactForm.querySelector('[name="company"]').value,
+      from_email: contactForm.querySelector('[name="from_email"]').value,
+      phone: contactForm.querySelector('[name="phone"]').value,
+      industry: contactForm.querySelector('[name="industry"]').value,
+      message: contactForm.querySelector('[name="message"]').value
+    };
 
-        // Success
+    // Send email
+    emailjs.send("service_dbjqecr", "template_zpzk2h7", templateParams)
+      .then(function (response) {
+
+        console.log("SUCCESS!", response.status, response.text);
+
         submitBtn.style.display = "none";
         if (formSuccess) formSuccess.classList.add("show");
+
         contactForm.reset();
 
       })
       .catch(function (error) {
 
-        // Error
+        console.log("FAILED...", error);
+
         submitBtn.disabled = false;
         submitBtn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
 
         if (formError) formError.classList.add("show");
-
-        console.error("EmailJS Error:", error);
 
       });
 
