@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulatic Axis — Simulation & Digital Transformation</title>
+  <meta name="description" content="Simulatic Axis specializes in simulation and digital transformation, delivering Industry 4.0 solutions across manufacturing, healthcare, logistics, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">Simulatic<strong>Axis</strong></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="#services" onclick="closeMenu()">Services</a></li>
+    <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+    <li><a href="#tools" onclick="closeMenu()">Tools</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Get in Touch</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <canvas id="gridCanvas"></canvas>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Industry 4.0 Simulation Experts
+    </div>
+    <h1 class="hero-title">
+      Engineering the<br />
+      <span class="gradient-text">Digital Future</span><br />
+      of Operations
+    </h1>
+    <p class="hero-sub">
+      We transform complex real-world processes into powerful digital simulations — 
+      optimizing warehouses, factories, hospitals, and more across Pakistan, USA, and Canada.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">View Our Work</a>
+      <a href="#contact" class="btn-outline">Start a Project</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">50+</span>
+        <span class="stat-label">Projects Delivered</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat">
+        <span class="stat-num">8+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat">
+        <span class="stat-num">18</span>
+        <span class="stat-label">Expert Engineers</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Countries Active</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">Who We Are</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="section-title">Simulation as a<br /><em>competitive advantage</em></h2>
+        <p>At Simulatic Axis, we believe that before you build it, you should simulate it. Our team of <strong>13 simulation engineers</strong> and <strong>5 AI & software experts</strong> brings deep technical knowledge and cross-industry experience to every engagement.</p>
+        <p>We work at the intersection of engineering, data science, and operational excellence — helping organizations make confident decisions, reduce costs, and unlock performance they didn't know was possible.</p>
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon">🌐</div>
+            <div>
+              <strong>Global Reach</strong>
+              <span>Active operations in Pakistan, USA & Canada</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">⚡</div>
+            <div>
+              <strong>Fast Delivery</strong>
+              <span>50+ projects completed in just 6 months</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">🔬</div>
+            <div>
+              <strong>Research-Backed</strong>
+              <span>Proven academic & enterprise methodologies</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-card-stack">
+          <div class="about-card ac1">
+            <div class="ac-top">
+              <span class="ac-icon">🏭</span>
+              <span class="ac-tag">Manufacturing</span>
+            </div>
+            <p>Production line balancing & bottleneck removal</p>
+          </div>
+          <div class="about-card ac2">
+            <div class="ac-top">
+              <span class="ac-icon">🏥</span>
+              <span class="ac-tag">Healthcare</span>
+            </div>
+            <p>Patient flow & facility digital twins</p>
+          </div>
+          <div class="about-card ac3">
+            <div class="ac-top">
+              <span class="ac-icon">📦</span>
+              <span class="ac-tag">Logistics</span>
+            </div>
+            <p>Warehouse & inventory optimization</p>
+          </div>
+          <div class="about-card ac4">
+            <div class="ac-top">
+              <span class="ac-icon">✈️</span>
+              <span class="ac-tag">Aviation</span>
+            </div>
+            <p>Airport baggage handling systems</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title centered">End-to-End Simulation<br /><em>Services</em></h2>
+    <p class="section-desc">From concept to actionable insight — we cover the full simulation lifecycle.</p>
+
+    <div class="services-grid">
+      <div class="service-card" data-delay="0">
+        <div class="sc-number">01</div>
+        <div class="sc-icon">🏭</div>
+        <h3>Manufacturing Simulation</h3>
+        <p>Production line balancing, bottleneck analysis, FMS optimization, and assembly line simulation using Simio, FlexSim & Arena.</p>
+        <ul>
+          <li>Line balancing & throughput analysis</li>
+          <li>Bottleneck identification & removal</li>
+          <li>Flexible Manufacturing Systems (FMS)</li>
+          <li>Design of Experiments (DoE)</li>
+        </ul>
+      </div>
+
+      <div class="service-card" data-delay="100">
+        <div class="sc-number">02</div>
+        <div class="sc-icon">📦</div>
+        <h3>Warehouse & Logistics</h3>
+        <p>End-to-end warehouse management simulation including picking, placing, routing, and inventory flow optimization.</p>
+        <ul>
+          <li>Warehouse layout optimization</li>
+          <li>Picking & placing systems</li>
+          <li>Inventory flow modeling</li>
+          <li>Ambulance & emergency routing</li>
+        </ul>
+      </div>
+
+      <div class="service-card" data-delay="200">
+        <div class="sc-number">03</div>
+        <div class="sc-icon">🏥</div>
+        <h3>Healthcare Simulation</h3>
+        <p>Patient flow modeling, facility planning digital twins, and resource optimization for hospitals and clinics.</p>
+        <ul>
+          <li>Patient flow analysis</li>
+          <li>Healthcare facility planning</li>
+          <li>Digital twin development</li>
+          <li>Staff & resource scheduling</li>
+        </ul>
+      </div>
+
+      <div class="service-card" data-delay="300">
+        <div class="sc-number">04</div>
+        <div class="sc-icon">✈️</div>
+        <h3>Airport & Transportation</h3>
+        <p>Airport baggage handling simulation, queuing system analysis, and transportation network modeling.</p>
+        <ul>
+          <li>Baggage handling systems</li>
+          <li>Queuing & throughput analysis</li>
+          <li>Drive-through simulation</li>
+          <li>Walk-in customer flow</li>
+        </ul>
+      </div>
+
+      <div class="service-card" data-delay="0">
+        <div class="sc-number">05</div>
+        <div class="sc-icon">🤖</div>
+        <h3>AI & Digital Transformation</h3>
+        <p>Advanced AI-powered solutions aligned to Industry 4.0 standards, from proof-of-concept to enterprise deployment.</p>
+        <ul>
+          <li>Industry 4.0 integration</li>
+          <li>AI-powered optimization</li>
+          <li>Proof of concept development</li>
+          <li>R&D simulation support</li>
+        </ul>
+      </div>
+
+      <div class="service-card" data-delay="100">
+        <div class="sc-number">06</div>
+        <div class="sc-icon">🔬</div>
+        <h3>Academic & Research</h3>
+        <p>Supporting university research labs and student projects with rigorous simulation methodology across Singapore, Malaysia, and beyond.</p>
+        <ul>
+          <li>University lab setups</li>
+          <li>Proof-of-concept projects</li>
+          <li>Academic research support</li>
+          <li>Industry-academia collaboration</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="container">
+    <div class="section-label">Our Tech Stack</div>
+    <h2 class="section-title centered">Powered by<br /><em>Industry-Leading Platforms</em></h2>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-logo simio">Simio</div>
+        <h4>Simio</h4>
+        <p>Object-based 3D simulation for complex manufacturing and logistics systems.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo flexsim">FlexSim</div>
+        <h4>FlexSim</h4>
+        <p>High-fidelity 3D simulation for warehouses, hospitals, and industrial systems.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo arena">Arena</div>
+        <h4>Arena</h4>
+        <p>Process-driven discrete event simulation for queuing and service operations.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-logo ai">AI/ML</div>
+        <h4>AI & Data Science</h4>
+        <p>Machine learning integration for predictive modeling and intelligent optimization.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">Our Work</div>
+    <h2 class="section-title centered">Portfolio of<br /><em>Real-World Projects</em></h2>
+    <p class="section-desc">Over 50 projects delivered in 6 months across industries and continents.</p>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="manufacturing">Manufacturing</button>
+      <button class="filter-btn" data-filter="logistics">Logistics</button>
+      <button class="filter-btn" data-filter="healthcare">Healthcare</button>
+      <button class="filter-btn" data-filter="academic">Academic</button>
+      <button class="filter-btn" data-filter="service">Service</button>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+
+      <div class="project-card" data-cat="logistics">
+        <div class="pc-header">
+          <span class="pc-tag logistics-tag">Logistics</span>
+          <span class="pc-tool">Simio</span>
+        </div>
+        <h3>Warehouse Management System</h3>
+        <p>Comprehensive warehouse simulation covering picking, placing, routing, and inventory flow. Delivered actionable insights for efficiency improvement and customer satisfaction.</p>
+        <div class="pc-footer">
+          <span class="pc-region">🌍 Global</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="manufacturing">
+        <div class="pc-header">
+          <span class="pc-tag manufacturing-tag">Manufacturing</span>
+          <span class="pc-tool">Simio</span>
+        </div>
+        <h3>Automobile Assembly Line</h3>
+        <p>Full simulation of automobile assembly for a Pakistani manufacturer, identifying bottlenecks and optimizing production throughput at the subpart and system level.</p>
+        <div class="pc-footer">
+          <span class="pc-region">🇵🇰 Pakistan</span>
+        </div>
+      </div>
+
+      <div class="project-card featured" data-cat="healthcare">
+        <div class="pc-header">
+          <span class="pc-tag healthcare-tag">Healthcare</span>
+          <span class="pc-tool">FlexSim</span>
+        </div>
+        <h3>Healthcare Facility Digital Twin</h3>
+        <p>Multi-phase digital twin of a healthcare setting including patient flow, staff allocation, and facility layout optimization. Three-scenario analysis for strategic decision-making.</p>
+        <div class="pc-footer">
+          <span class="pc-region">🏥 Enterprise</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="manufacturing">
+        <div class="pc-header">
+          <span class="pc-tag manufacturing-tag">Manufacturing</span>
+          <span class="pc-tool">FlexSim</span>
+        </div>
+        <h3>Flexible Manufacturing System (FMS)</h3>
+        <p>Enterprise-scale FMS simulation for a company in France, modeling complex routing, machine scheduling, and real-time optimization of production resources.</p>
+        <div class="pc-footer">
+          <span class="pc-region">🇫🇷 France</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="manufacturing">
+        <div class="pc-header">
+          <span class="pc-tag manufacturing-tag">Manufacturing</span>
+          <span class="pc-tool">Simio</span>
+        </div>
+        <h3>Prosthodontic Material Workshop</h3>
+        <p>In-house manufacturing setup simulation for a prosthodontic material production workshop, streamlining workflow and reducing material waste.</p>
+        <div class="pc-footer">
+          <span class="pc-region">🏭 Industrial</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="logistics">
+        <div class="pc-header">
+          <span class="pc-tag logistics-tag">Logistics</span>
+          <span class="pc-tool">Arena</span>
+        </div>
+        <h3>Airport Baggage Handling</h3>
+        <p>Simulation of an airport baggage handling system to minimize turnaround times, reduce errors, and optimize staffing levels during peak operations.</p>
+        <div class="pc-footer">
+          <span class="pc-region">✈️ Aviation</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="manufacturing">
+        <div class="pc-header">
+          <span class="pc-tag manufacturing-tag">Manufacturing</span>
+          <span class="pc-tool">Simio</span>
+        </div>
+        <h3>Town Workshop — DoE Optimization</h3>
+        <p>Design of Experiment-driven simulation for a town workshop facility, evaluating multiple configurations to identify the most efficient operational setup.</p>
+        <div class="pc-footer">
+          <span class="pc-region">🔧 Industrial</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="manufacturing">
+        <div class="pc-header">
+          <span class="pc-tag manufacturing-tag">Manufacturing</span>
+          <span class="pc-tool">FlexSim</span>
+        </div>
+        <h3>Vertical Forming Simulation</h3>
+        <p>Detailed simulation of a vertical forming process to identify production inefficiencies and model alternative process configurations for improved throughput.</p>
+        <div class="pc-footer">
+          <span class="pc-region">🏭 Industrial</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="manufacturing">
+        <div class="pc-header">
+          <span class="pc-tag manufacturing-tag">Manufacturing</span>
+          <span class="pc-tool">FlexSim</span>
+        </div>
+        <h3>Wood Manufacturing — Bottleneck Removal</h3>
+        <p>End-to-end wood manufacturing simulation identifying critical bottlenecks and modeling targeted interventions to increase overall equipment effectiveness.</p>
+        <div class="pc-footer">
+          <span class="pc-region">🌲 Industrial</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="academic">
+        <div class="pc-header">
+          <span class="pc-tag academic-tag">Academic</span>
+          <span class="pc-tool">FlexSim</span>
+        </div>
+        <h3>Brownies Packing — Food Production</h3>
+        <p>Simulation of a brownies packing line for academic process analysis, demonstrating packaging automation potential and workforce optimization.</p>
+        <div class="pc-footer">
+          <span class="pc-region">🎓 Academic</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="service">
+        <div class="pc-header">
+          <span class="pc-tag service-tag">Service</span>
+          <span class="pc-tool">Arena</span>
+        </div>
+        <h3>Restaurant Proof of Concept</h3>
+        <p>Full simulation of restaurant operations including customer arrival patterns, order processing, kitchen throughput, and service time optimization for a student client.</p>
+        <div class="pc-footer">
+          <span class="pc-region">🍽️ Service</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="service">
+        <div class="pc-header">
+          <span class="pc-tag service-tag">Service</span>
+          <span class="pc-tool">Arena</span>
+        </div>
+        <h3>Salon Setup — Malaysia</h3>
+        <p>Simulation of a salon's operational flow in Malaysia, modeling appointment scheduling, walk-in customers, and staff allocation for peak and off-peak periods.</p>
+        <div class="pc-footer">
+          <span class="pc-region">🇲🇾 Malaysia</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="service">
+        <div class="pc-header">
+          <span class="pc-tag service-tag">Service</span>
+          <span class="pc-tool">Simio</span>
+        </div>
+        <h3>Drive-Through & Walk-In Simulation</h3>
+        <p>Multi-scenario simulation for drive-through and walk-in customer service operations, analyzing queue dynamics and service efficiency across three design variants.</p>
+        <div class="pc-footer">
+          <span class="pc-region">🚗 Service</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="logistics">
+        <div class="pc-header">
+          <span class="pc-tag logistics-tag">Logistics</span>
+          <span class="pc-tool">Arena</span>
+        </div>
+        <h3>Filling Station Queuing Problem</h3>
+        <p>Discrete-event simulation of a filling station to analyze queuing behavior, waiting times, and optimal service counter configuration to reduce customer wait.</p>
+        <div class="pc-footer">
+          <span class="pc-region">⛽ Service</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="academic">
+        <div class="pc-header">
+          <span class="pc-tag academic-tag">Academic</span>
+          <span class="pc-tool">FlexSim</span>
+        </div>
+        <h3>University Lab — Singapore</h3>
+        <p>Simulation-based lab setup optimization for a university in Singapore, modeling equipment utilization, student workflows, and experiment scheduling efficiency.</p>
+        <div class="pc-footer">
+          <span class="pc-region">🇸🇬 Singapore</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="academic">
+        <div class="pc-header">
+          <span class="pc-tag academic-tag">Academic/R&D</span>
+          <span class="pc-tool">Simio</span>
+        </div>
+        <h3>Chemical Industry — R&D Concept</h3>
+        <p>Concept implementation simulation for the R&D department of a chemical industry client, modeling experimental workflows and resource utilization patterns.</p>
+        <div class="pc-footer">
+          <span class="pc-region">🧪 R&D</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="section-label">How We Work</div>
+    <h2 class="section-title centered">Our Proven<br /><em>Simulation Process</em></h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <h4>Discovery & Scoping</h4>
+          <p>We meet with your team to understand the system, define goals, identify KPIs, and scope the simulation boundaries.</p>
+        </div>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <h4>Data Collection</h4>
+          <p>We gather process data, time-motion studies, historical records, and operational parameters to build an accurate model.</p>
+        </div>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <h4>Model Development</h4>
+          <p>Our engineers build the simulation using Simio, FlexSim, or Arena — validated against real-world baseline data.</p>
+        </div>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <h4>Analysis & Scenarios</h4>
+          <p>We run what-if scenarios, design experiments, and stress-test your process to extract maximum insight.</p>
+        </div>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="step-num">05</div>
+        <div class="step-body">
+          <h4>Recommendations</h4>
+          <p>Actionable, data-backed recommendations delivered in a clear report with visual dashboards and simulation replays.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-label">Let's Collaborate</div>
+        <h2 class="section-title">Ready to Simulate<br /><em>Your Operations?</em></h2>
+        <p>Whether you're optimizing a warehouse, planning a healthcare facility, or building a proof of concept — we're ready to help. Schedule a meeting today and let's explore what's possible.</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="ci-icon">🌍</span>
+            <div>
+              <strong>Global Operations</strong>
+              <span>Pakistan · USA · Canada</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">⚡</span>
+            <div>
+              <strong>Fast Response</strong>
+              <span>We respond within 24 hours</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">💼</span>
+            <div>
+              <strong>Free Consultation</strong>
+              <span>Initial scoping call at no cost</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">🔗</span>
+            <div>
+              <strong>LinkedIn</strong>
+              <a href="https://www.linkedin.com/company/simulatic-axis/" target="_blank" rel="noopener">Simulatic Axis</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="John Smith" required />
+            </div>
+            <div class="form-group">
+              <label>Company</label>
+              <input type="text" placeholder="ACME Corp" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="john@company.com" required />
+          </div>
+          <div class="form-group">
+            <label>Industry</label>
+            <select>
+              <option value="">Select your industry</option>
+              <option>Manufacturing</option>
+              <option>Warehousing & Logistics</option>
+              <option>Healthcare</option>
+              <option>Aviation & Transportation</option>
+              <option>Academic / Research</option>
+              <option>Food & Beverage</option>
+              <option>Chemical / R&D</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tell us about your project</label>
+            <textarea rows="4" placeholder="Describe the system you'd like to simulate and your key objectives..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary full-width">
+            Send Message
+            <span class="btn-arrow">→</span>
+          </button>
+          <div class="form-success" id="formSuccess">
+            ✅ Thank you! We'll be in touch within 24 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-icon">⬡</span>
+          <span class="logo-text">Simulatic<strong>Axis</strong></span>
+        </a>
+        <p>Transforming complex operations into competitive advantages through expert simulation and digital transformation.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Manufacturing Simulation</a></li>
+          <li><a href="#services">Warehouse & Logistics</a></li>
+          <li><a href="#services">Healthcare Simulation</a></li>
+          <li><a href="#services">Digital Twins</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Platforms</h5>
+        <ul>
+          <li><a href="#tools">Simio</a></li>
+          <li><a href="#tools">FlexSim</a></li>
+          <li><a href="#tools">Arena</a></li>
+          <li><a href="#tools">AI & ML Integration</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Simulatic Axis. All rights reserved.</p>
+      <p>Simulation · Digital Transformation · Industry 4.0</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
