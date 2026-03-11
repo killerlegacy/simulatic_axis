@@ -186,23 +186,28 @@ contactForm.addEventListener('submit', (e) => {
   styleEl.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
   document.head.appendChild(styleEl);
 
-  emailjs.sendForm('service_ejxjiy7', 'template_zpzk2h7', contactForm)
+  const formError = document.getElementById('formError');
+  formSuccess.classList.remove('show');
+  formError.style.display = 'none';
+
+  emailjs.send('service_ejxjiy7', 'template_zpzk2h7', {
+    from_name:  contactForm.querySelector('[name="from_name"]').value,
+    from_email: contactForm.querySelector('[name="from_email"]').value,
+    phone:      contactForm.querySelector('[name="phone"]').value,
+    company:    contactForm.querySelector('[name="company"]').value,
+    industry:   contactForm.querySelector('[name="industry"]').value,
+    message:    contactForm.querySelector('[name="message"]').value,
+  })
     .then(() => {
-      // Success
       submitBtn.style.display = 'none';
       formSuccess.classList.add('show');
       contactForm.reset();
     })
     .catch((error) => {
-      // Error
       submitBtn.disabled = false;
       submitBtn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
-      const errMsg = document.getElementById('formError');
-      if (errMsg) {
-        errMsg.textContent = 'Something went wrong. Please try again or email us directly.';
-        errMsg.style.display = 'block';
-      }
-      console.error('EmailJS error:', error);
+      formError.style.display = 'block';
+      console.error('EmailJS error:', JSON.stringify(error));
     });
 });
 
