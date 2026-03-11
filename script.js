@@ -169,66 +169,6 @@ filterBtns.forEach(btn => {
   });
 });
 
-// ---- CONTACT FORM — Formspree ----
-var contactForm = document.getElementById('contactForm');
-var formSuccess = document.getElementById('formSuccess');
-var formError   = document.getElementById('formError');
-var submitBtn   = document.getElementById('submitBtn');
-
-// Hide messages on load (safety net)
-if (formSuccess) formSuccess.classList.remove('show');
-if (formError)   formError.style.display = 'none';
-
-if (contactForm) {
-  contactForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    // Reset messages
-    formSuccess.classList.remove('show');
-    formError.style.display = 'none';
-
-    // Loading state
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
-
-    // Build plain object from form fields and send as JSON
-    var payload = {
-      from_name:  contactForm.querySelector('[name="from_name"]').value,
-      from_email: contactForm.querySelector('[name="from_email"]').value,
-      phone:      contactForm.querySelector('[name="phone"]').value,
-      company:    contactForm.querySelector('[name="company"]').value,
-      industry:   contactForm.querySelector('[name="industry"]').value,
-      message:    contactForm.querySelector('[name="message"]').value
-    };
-
-    fetch('https://formspree.io/f/mkoqrbjb', {
-      method: 'POST',
-      body: JSON.stringify(payload),
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    })
-    .then(function (response) {
-      return response.json().then(function (data) {
-        if (response.ok) {
-          submitBtn.style.display = 'none';
-          formSuccess.classList.add('show');
-          contactForm.reset();
-        } else {
-          throw new Error(data.errors ? data.errors.map(function(x){ return x.message; }).join(', ') : 'Submission failed');
-        }
-      });
-    })
-    .catch(function (error) {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = 'Send Message <span class="btn-arrow">\u2192</span>';
-      formError.style.display = 'block';
-      console.error('Form error:', error.message);
-    });
-  });
-}
-
 // ---- SMOOTH ANCHOR SCROLL ----
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
