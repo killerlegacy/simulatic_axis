@@ -169,65 +169,50 @@ filterBtns.forEach(btn => {
   });
 });
 
-// ---- CONTACT FORM — EmailJS ----
+// ---- CONTACT FORM — Formspree ----
+(function () {
+  var contactForm = document.getElementById('contactForm');
+  var formSuccess = document.getElementById('formSuccess');
+  var formError   = document.getElementById('formError');
+  var submitBtn   = document.getElementById('submitBtn');
 
-// Initialize EmailJS
-emailjs.init('gXNyxaFUEYM3GWxuc');
-
-const contactForm = document.getElementById("contactForm");
-const formSuccess = document.getElementById("formSuccess");
-const formError   = document.getElementById("formError");
-const submitBtn   = document.getElementById("submitBtn");
-
-if (contactForm) {
-
-  contactForm.addEventListener("submit", function (e) {
+  contactForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
     // Reset messages
-    if (formSuccess) formSuccess.classList.remove("show");
-    if (formError) formError.classList.remove("show");
+    formSuccess.classList.remove('show');
+    formError.style.display = 'none';
 
     // Loading state
     submitBtn.disabled = true;
-    submitBtn.textContent = "Sending...";
+    submitBtn.textContent = 'Sending...';
 
-    // Collect form data
-    const templateParams = {
-      from_name: contactForm.querySelector('[name="from_name"]').value,
-      company: contactForm.querySelector('[name="company"]').value,
-      from_email: contactForm.querySelector('[name="from_email"]').value,
-      phone: contactForm.querySelector('[name="phone"]').value,
-      industry: contactForm.querySelector('[name="industry"]').value,
-      message: contactForm.querySelector('[name="message"]').value
-    };
+    var data = new FormData(contactForm);
 
-    // Send email
-    emailjs.send("service_ejxjiy7", "template_zpzk2h7", templateParams)
-      .then(function (response) {
-
-        console.log("SUCCESS!", response.status, response.text);
-
-        submitBtn.style.display = "none";
-        if (formSuccess) formSuccess.classList.add("show");
-
+    fetch('https://formspree.io/f/mkoqrbjb', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function (response) {
+      if (response.ok) {
+        submitBtn.style.display = 'none';
+        formSuccess.classList.add('show');
         contactForm.reset();
-
-      })
-      .catch(function (error) {
-
-        console.log("FAILED...", error);
-
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
-
-        if (formError) formError.classList.add("show");
-
-      });
-
+      } else {
+        return response.json().then(function (data) {
+          throw new Error(data.errors ? data.errors.map(function(e){ return e.message; }).join(', ') : 'Form submission failed');
+        });
+      }
+    })
+    .catch(function (error) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Send Message <span class="btn-arrow">\u2192</span>';
+      formError.style.display = 'block';
+      console.error('Formspree error:', error);
+    });
   });
-
-}
+})();
 
 // ---- SMOOTH ANCHOR SCROLL ----
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
