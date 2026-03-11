@@ -169,20 +169,41 @@ filterBtns.forEach(btn => {
   });
 });
 
-// ---- CONTACT FORM ----
+// ---- CONTACT FORM — EmailJS ----
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
+const submitBtn = document.getElementById('submitBtn');
 
 contactForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const btn = contactForm.querySelector('button[type="submit"]');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.style.display = 'none';
-    formSuccess.classList.add('show');
-    contactForm.reset();
-  }, 1200);
+
+  // Button loading state
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span style="display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation:spin 0.8s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Sending...</span>';
+
+  const styleEl = document.getElementById('spinStyle') || document.createElement('style');
+  styleEl.id = 'spinStyle';
+  styleEl.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
+  document.head.appendChild(styleEl);
+
+  emailjs.sendForm('service_ejxjiy7', 'template_zpzk2h7', contactForm)
+    .then(() => {
+      // Success
+      submitBtn.style.display = 'none';
+      formSuccess.classList.add('show');
+      contactForm.reset();
+    })
+    .catch((error) => {
+      // Error
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
+      const errMsg = document.getElementById('formError');
+      if (errMsg) {
+        errMsg.textContent = 'Something went wrong. Please try again or email us directly.';
+        errMsg.style.display = 'block';
+      }
+      console.error('EmailJS error:', error);
+    });
 });
 
 // ---- SMOOTH ANCHOR SCROLL ----
