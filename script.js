@@ -189,7 +189,7 @@ filterBtns.forEach(btn => {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
 
-    emailjs.sendForm('service_ejxjiy7', 'template_zpzk2h7', this)
+    emailjs.sendForm('service_dbjqecr', 'template_zpzk2h7', this)
       .then(function () {
         submitBtn.style.display = 'none';
         formSuccess.classList.add('show');
