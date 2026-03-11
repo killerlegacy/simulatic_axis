@@ -1,7 +1,7 @@
 /* ============================================================
    SIMULATIC AXIS — STYLESHEET
    Theme: Dark industrial-tech with teal/cyan accents
-   Fonts: Syne (display) + DM Sans (body)
+   Fonts: Outfit (display/headings) + Manrope (body)
    ============================================================ */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -190,7 +190,7 @@ body {
   filter: drop-shadow(0 0 8px var(--accent));
 }
 .logo-text {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1.15rem;
   font-weight: 400;
   letter-spacing: -0.01em;
