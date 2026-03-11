@@ -170,46 +170,38 @@ filterBtns.forEach(btn => {
 });
 
 // ---- CONTACT FORM — EmailJS ----
-const contactForm = document.getElementById('contactForm');
-const formSuccess = document.getElementById('formSuccess');
-const submitBtn = document.getElementById('submitBtn');
+(function () {
+  emailjs.init('gXNyxaFUEYM3GWxuc');
 
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+  var contactForm = document.getElementById('contactForm');
+  var formSuccess = document.getElementById('formSuccess');
+  var formError   = document.getElementById('formError');
+  var submitBtn   = document.getElementById('submitBtn');
 
-  // Button loading state
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = '<span style="display:inline-flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation:spin 0.8s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Sending...</span>';
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-  const styleEl = document.getElementById('spinStyle') || document.createElement('style');
-  styleEl.id = 'spinStyle';
-  styleEl.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
-  document.head.appendChild(styleEl);
+    // Reset messages
+    formSuccess.classList.remove('show');
+    formError.style.display = 'none';
 
-  const formError = document.getElementById('formError');
-  formSuccess.classList.remove('show');
-  formError.style.display = 'none';
+    // Loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
 
-  emailjs.send('service_ejxjiy7', 'template_zpzk2h7', {
-    from_name:  contactForm.querySelector('[name="from_name"]').value,
-    from_email: contactForm.querySelector('[name="from_email"]').value,
-    phone:      contactForm.querySelector('[name="phone"]').value,
-    company:    contactForm.querySelector('[name="company"]').value,
-    industry:   contactForm.querySelector('[name="industry"]').value,
-    message:    contactForm.querySelector('[name="message"]').value,
-  })
-    .then(() => {
-      submitBtn.style.display = 'none';
-      formSuccess.classList.add('show');
-      contactForm.reset();
-    })
-    .catch((error) => {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
-      formError.style.display = 'block';
-      console.error('EmailJS error:', JSON.stringify(error));
-    });
-});
+    emailjs.sendForm('service_ejxjiy7', 'template_zpzk2h7', this)
+      .then(function () {
+        submitBtn.style.display = 'none';
+        formSuccess.classList.add('show');
+        contactForm.reset();
+      }, function (error) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Send Message <span class="btn-arrow">\u2192</span>';
+        formError.style.display = 'block';
+        console.error('EmailJS failed:', JSON.stringify(error));
+      });
+  });
+})();
 
 // ---- SMOOTH ANCHOR SCROLL ----
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
