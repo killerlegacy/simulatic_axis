@@ -1005,6 +1005,18 @@ body {
 }
 .form-success.show { display: block; }
 
+.form-error {
+  display: none;
+  text-align: center;
+  padding: 16px;
+  background: rgba(255, 80, 80, 0.1);
+  border: 1px solid rgba(255, 80, 80, 0.3);
+  border-radius: var(--r-sm);
+  color: #ff7070;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
 /* ============ FOOTER ============ */
 footer {
   background: var(--bg);
