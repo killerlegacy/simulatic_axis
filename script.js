@@ -171,36 +171,50 @@ filterBtns.forEach(btn => {
 
 // ---- CONTACT FORM — EmailJS ----
 document.addEventListener("DOMContentLoaded", function () {
+
   emailjs.init('gXNyxaFUEYM3GWxuc');
 
-  var contactForm = document.getElementById('contactForm');
-  var formSuccess = document.getElementById('formSuccess');
-  var formError   = document.getElementById('formError');
-  var submitBtn   = document.getElementById('submitBtn');
+  const contactForm = document.getElementById("contactForm");
+  const formSuccess = document.getElementById("formSuccess");
+  const formError   = document.getElementById("formError");
+  const submitBtn   = document.getElementById("submitBtn");
 
-  contactForm.addEventListener('submit', function (e) {
+  // Stop script if form not found
+  if (!contactForm) return;
+
+  contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     // Reset messages
-    formSuccess.classList.remove('show');
-    formError.style.display = 'none';
+    formSuccess.classList.remove("show");
+    formError.classList.remove("show");
 
     // Loading state
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
+    submitBtn.textContent = "Sending...";
 
-    emailjs.sendForm('service_dbjqecr', 'template_zpzk2h7', this)
-      .then(function () {
-        submitBtn.style.display = 'none';
-        formSuccess.classList.add('show');
+    emailjs.sendForm("service_dbjqecr", "template_zpzk2h7", this)
+      .then(() => {
+
+        // Success
+        submitBtn.style.display = "none";
+        formSuccess.classList.add("show");
         contactForm.reset();
-      }, function (error) {
+
+      })
+      .catch((error) => {
+
+        // Error
         submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Send Message <span class="btn-arrow">\u2192</span>';
-        formError.style.display = 'block';
-        console.error('EmailJS failed:', JSON.stringify(error));
+        submitBtn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
+        formError.classList.add("show");
+
+        console.error("EmailJS Error:", error);
+
       });
+
   });
+
 });
 
 // ---- SMOOTH ANCHOR SCROLL ----
