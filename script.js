@@ -170,7 +170,7 @@ filterBtns.forEach(btn => {
 });
 
 // ---- CONTACT FORM — EmailJS ----
-(function () {
+document.addEventListener("DOMContentLoaded", function () {
   emailjs.init('gXNyxaFUEYM3GWxuc');
 
   var contactForm = document.getElementById('contactForm');
@@ -201,7 +201,7 @@ filterBtns.forEach(btn => {
         console.error('EmailJS failed:', JSON.stringify(error));
       });
   });
-})();
+});
 
 // ---- SMOOTH ANCHOR SCROLL ----
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
